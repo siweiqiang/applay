@@ -1,7 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
-import cors from 'cors'; // ✅ 引入 cors
-
+import cors from 'cors'; 
 const app = express();
 app.use(cors()); //允许跨域请求
 app.get('/api/download-pdf', async (req, res) => {
