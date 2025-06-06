@@ -3,8 +3,7 @@ import fetch from 'node-fetch';
 import cors from 'cors'; // ✅ 引入 cors
 
 const app = express();
-app.use(cors()); // ✅ 允许所有跨域请求
-
+app.use(cors()); //允许跨域请求
 app.get('/api/download-pdf', async (req, res) => {
   const { url } = req.query;
 
@@ -16,7 +15,7 @@ app.get('/api/download-pdf', async (req, res) => {
     const response = await fetch(url);
 
     if (!response.ok) {
-      return res.status(502).send('Failed to fetch the file from remote server');
+      return res.status(500).send('Failed to fetch the file from remote server');
     }
 
     const contentType = response.headers.get('content-type') || 'application/pdf';
